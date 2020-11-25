@@ -1,3 +1,6 @@
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
+[![codecov](https://codecov.io/gh/X-I-A/xeed-http-gcr/branch/master/graph/badge.svg)](https://codecov.io/gh/X-I-A/xeed-http-gcr) 
+[![master-check](https://github.com/x-i-a/xeed-http-gcr/workflows/master-check/badge.svg)](https://github.com/X-I-A/xeed-http-gcr/actions?query=workflow%3Amaster-check) 
 # XEED: HTTP End point on Google Cloud Run
 ## Introduction
 * This HTTP application can capture Xeed Http flow and publish the message to google cloud (Pubsub actually supported)

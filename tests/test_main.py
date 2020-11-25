@@ -30,10 +30,6 @@ def client():
     ctx.push()
     yield client
     ctx.pop()
-    sub = PubsubSubscriber(sub_client=pubsub_v1.SubscriberClient())
-    for message in sub.pull('x-i-a-test', 'xialib-sub-01'):
-        header, data, id = sub.unpack_message(message)
-        sub.ack('x-i-a-test', 'xialib-sub-01', id)
 
 def test_homepage(client):
     reponse = client.get('/')
@@ -146,3 +142,10 @@ def test_exceptions(client):
                           headers=err_header3, data=data_body)
     assert reponse.status_code == 400
     assert b'Xeed Header check error' in reponse.data
+
+def test_check_messages():
+    sub = PubsubSubscriber(sub_client=pubsub_v1.SubscriberClient())
+    for message in sub.pull('x-i-a-test', 'xialib-sub-01'):
+        header, data, id = sub.unpack_message(message)
+        assert len(json.loads(gzip.decompress(data).decode())) == 2
+        sub.ack('x-i-a-test', 'xialib-sub-01', id)

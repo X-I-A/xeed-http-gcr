@@ -89,4 +89,4 @@ def publish(publisher_id, destination, topic_id, table_id):
     return 'Data has been pushed to the destination', 200
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))  # pragma: no cover
