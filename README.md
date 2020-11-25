@@ -1,8 +1,9 @@
-# XEED Agent : HTTP to Pubsub 
+# XEED: HTTP End point on Google Cloud Run
 ## Introduction
-* This Xeed Agent can capture Xeed HTTP flow and publish the message of X-I protocol to Pubsub which is one of the entry point of Insight Module
+* This HTTP application can capture Xeed Http flow and publish the message to google cloud (Pubsub actually supported)
 * Please find the [protocol defintion here](https://github.com/X-I-A/X-I-Protocol/blob/main/HTTP_AGENT.md)
-* As is described in the protocol, URI of GCP is defined as: `https://..../projects/<project_id>/topics/<topic_name>`
+* As is described in the protocol, URI of GCP is defined as: 
+`https://..../publisher/pubsub/destinations/<project_id>/topics/<topic_name>/tables/<table_name>`
 
 ## Quick Start guide
 ### Preparation
