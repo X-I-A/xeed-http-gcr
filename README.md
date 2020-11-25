@@ -15,7 +15,7 @@ git clone https://github.com/X-I-A/xeed-http-gcr
 cd xeed-http-gcr
 ```
 Please using Google Cloud Console or by using Google Cloud SDK
-* `make init` Activation of API, service account creation with publisher roles
+* `make init` Activation of API, creation of service account with publisher roles
 * `make build` Build and upload Cloud Run Image
 * `make deploy` Deploy Cloud Run Image by using the last built image
 

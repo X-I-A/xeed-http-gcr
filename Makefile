@@ -5,7 +5,7 @@ SHELL:=/bin/bash
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-init: ## Activation of API, service account creation with publisher roles
+init: ## Activation of API, creation of service account with publisher roles
 	@TMP_PROJECT=$(shell gcloud config list --format 'value(core.project)'); \
 	read -e -p "Enter Your Project Name: " -i $${TMP_PROJECT} PROJECT_ID; \
 	gcloud config set project $${PROJECT_ID};
