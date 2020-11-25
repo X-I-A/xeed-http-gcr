@@ -7,6 +7,7 @@ help:
 
 init: ## Activation of API, creation of service account with publisher role
 	@PROJECT_ID=$(shell gcloud config list --format 'value(core.project)'); \
+	gcloud iam service-accounts create cloud-run-insight-loader; \
 	gcloud projects add-iam-policy-binding $${PROJECT_ID} \
 		--member=serviceAccount:cloud-run-xeed-http@$${PROJECT_ID}.iam.gserviceaccount.com \
 		--role=roles/pubsub.publisher
