@@ -3,6 +3,8 @@ import json
 import base64
 import gzip
 import pytest
+from google.cloud import pubsub_v1
+from xialib_gcp import PubsubSubscriber
 from main import app
 
 credentials = base64.b64encode(b"user:La_vie_est_belle").decode()
@@ -28,6 +30,10 @@ def client():
     ctx.push()
     yield client
     ctx.pop()
+    sub = PubsubSubscriber(sub_client=pubsub_v1.SubscriberClient())
+    for message in sub.pull('x-i-a-test', 'xialib-sub-01'):
+        header, data, id = sub.unpack_message(message)
+        sub.ack('x-i-a-test', 'xialib-sub-01', id)
 
 def test_homepage(client):
     reponse = client.get('/')
