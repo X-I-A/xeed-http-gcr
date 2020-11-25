@@ -35,7 +35,7 @@ jobs:
         echo "$GCP_CRED" >> ./service_account.json
         cd tests && export PYTHONPATH='..'
         export GOOGLE_APPLICATION_CREDENTIALS='../service_account.json'
-        pytest --cov=../main --cov-report=xml
+        pytest --cov=.. --cov-report=xml
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
